@@ -219,7 +219,7 @@ For fully air-gapped deployments, use Ollama or vLLM. No internet connection req
 - **Data isolation**: Groundedness mode never sends data outside your network. The LLM calls go to your configured provider — if that's a local Ollama instance, nothing touches the internet.
 - **Factual mode is opt-in**: Only extracted claim text (not your documents) is sent to VeroQ API. No context, no metadata, no user information.
 - **No persistent storage**: Shield is stateless. No database, no logs of your content, no telemetry. Request in, response out.
-- **SOC 2 / HIPAA friendly**: Run on your audited infrastructure with your approved LLM provider. Shield is just a verification layer — it inherits your existing compliance posture.
+- **Compliance ready**: Runs on your already-audited infrastructure with your approved LLM provider. No new vendor to vet — Shield inherits your existing compliance posture.
 - **Open source**: Full source code. Audit it, modify it, deploy it however you need.
 
 ## API Reference
