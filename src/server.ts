@@ -4,7 +4,7 @@
  * Runs inside your VPC. Uses your own LLM. Data never leaves your network
  * (unless you opt into external factual verification via VeroQ API).
  *
- * docker run -e LLM_API_KEY=sk-... -e LLM_MODEL=gpt-4o-mini -p 3000:3000 veroq/shield
+ * docker run -e LLM_API_KEY=sk-... -e LLM_MODEL=gpt-5.4-mini -p 3000:3000 veroq/shield
  */
 
 import express from "express";

@@ -70,7 +70,7 @@ Without both modes, this error ships to production.
 docker run -p 3000:3000 \
   -e LLM_BASE_URL=https://api.openai.com/v1 \
   -e LLM_API_KEY=sk-... \
-  -e LLM_MODEL=gpt-4o-mini \
+  -e LLM_MODEL=gpt-5.4-mini \
   veroq/shield
 ```
 
@@ -86,7 +86,7 @@ docker compose up
 
 ```bash
 npm install && npm run build
-LLM_API_KEY=sk-... LLM_MODEL=gpt-4o-mini npm start
+LLM_API_KEY=sk-... LLM_MODEL=gpt-5.4-mini npm start
 ```
 
 ### Air-Gapped (Ollama)
@@ -203,8 +203,8 @@ Works with any OpenAI-compatible API. Use the model you're already paying for:
 
 | Provider | LLM_BASE_URL | Example Model |
 |----------|-------------|-----------|
-| **OpenAI** | `https://api.openai.com/v1` | `gpt-4o-mini` |
-| **Azure OpenAI** | `https://YOUR.openai.azure.com/...` | `gpt-4o-mini` |
+| **OpenAI** | `https://api.openai.com/v1` | `gpt-5.4-mini` |
+| **Azure OpenAI** | `https://YOUR.openai.azure.com/...` | `gpt-5.4-mini` |
 | **Ollama** (local) | `http://localhost:11434/v1` | `llama3`, `mistral` |
 | **vLLM** (local) | `http://localhost:8000/v1` | Any HuggingFace model |
 | **NVIDIA NIM** | `https://integrate.api.nvidia.com/v1` | `meta/llama3-70b-instruct` |
@@ -238,7 +238,7 @@ For fully air-gapped deployments, use Ollama or vLLM. No internet connection req
 |-----------|------|----------|-------------|
 | `text` | string | Yes | The LLM output to verify |
 | `context` | string | No | Document context for groundedness verification |
-| `source` | string | No | Source identifier (e.g., "gpt-4o", "internal-rag") |
+| `source` | string | No | Source identifier (e.g., "gpt-5.4", "internal-rag") |
 | `max_claims` | number | No | Max claims to extract (1-20, default 5) |
 | `mode` | string | No | `"groundedness"`, `"factual"`, or `"both"` (auto-detected if omitted) |
 
@@ -248,7 +248,7 @@ For fully air-gapped deployments, use Ollama or vLLM. No internet connection req
 |----------|----------|---------|-------------|
 | `LLM_BASE_URL` | Yes | `https://api.openai.com/v1` | Your LLM provider's OpenAI-compatible endpoint |
 | `LLM_API_KEY` | Yes | — | API key for your LLM (use `none` for local models) |
-| `LLM_MODEL` | Yes | `gpt-4o-mini` | Model for claim extraction and groundedness |
+| `LLM_MODEL` | Yes | `gpt-5.4-mini` | Model for claim extraction and groundedness |
 | `LLM_MAX_TOKENS` | No | `2000` | Max tokens per LLM call |
 | `LLM_TEMPERATURE` | No | `0` | Temperature (0 = deterministic) |
 | `VEROQ_API_KEY` | No | — | Enables factual mode via VeroQ cloud API |

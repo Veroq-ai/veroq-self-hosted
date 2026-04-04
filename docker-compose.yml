@@ -9,7 +9,7 @@ services:
       # Required: Your LLM provider
       - LLM_BASE_URL=https://api.openai.com/v1    # Or http://localhost:11434/v1 for Ollama
       - LLM_API_KEY=${LLM_API_KEY}                 # Your OpenAI/provider API key
-      - LLM_MODEL=gpt-4o-mini                      # Any model your provider supports
+      - LLM_MODEL=gpt-5.4-mini                      # Any model your provider supports
 
       # Optional: Enable external fact-checking via VeroQ API
       # Without this, only groundedness mode (local document verification) is available

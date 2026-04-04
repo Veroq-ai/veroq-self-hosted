@@ -11,7 +11,7 @@ export interface LlmConfig {
   baseUrl: string;
   /** API key (set to "none" for local models that don't need auth) */
   apiKey: string;
-  /** Model name (e.g., "gpt-4o-mini", "llama3", "mistral") */
+  /** Model name (e.g., "gpt-5.4-mini", "llama3", "mistral") */
   model: string;
   /** Max tokens for completion */
   maxTokens?: number;
@@ -32,7 +32,7 @@ export interface LlmResponse {
 const DEFAULT_CONFIG: LlmConfig = {
   baseUrl: process.env.LLM_BASE_URL || "https://api.openai.com/v1",
   apiKey: process.env.LLM_API_KEY || "",
-  model: process.env.LLM_MODEL || "gpt-4o-mini",
+  model: process.env.LLM_MODEL || "gpt-5.4-mini",
   maxTokens: parseInt(process.env.LLM_MAX_TOKENS || "2000"),
   temperature: parseFloat(process.env.LLM_TEMPERATURE || "0"),
 };

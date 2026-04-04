@@ -17,7 +17,7 @@ export interface ShieldRequest {
   text: string;
   /** Document context to verify against (groundedness mode) */
   context?: string;
-  /** Source identifier (e.g., "gpt-4o", "llama3") */
+  /** Source identifier (e.g., "gpt-5.4", "llama3") */
   source?: string;
   /** Max claims to extract (1-20, default 5) */
   maxClaims?: number;
