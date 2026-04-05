@@ -109,9 +109,24 @@ Return JSON:
 Return ONLY valid JSON.`;
 
 async function verifyGroundedness(claim: string, context: string): Promise<ClaimResult> {
+  // Positional context batching: if context is long, split into paragraphs,
+  // treat each as a "chunk" with equal score, and reorder so the first and
+  // last paragraphs anchor the LLM's attention (Lost-in-the-Middle mitigation).
+  let orderedContext = context;
+  if (context.length > 4000) {
+    const paragraphs = context.split(/\n\n+/).filter(p => p.trim().length > 0);
+    if (paragraphs.length >= 3) {
+      // Place first paragraph at start, second at end, rest in middle
+      const reordered = [paragraphs[0], ...paragraphs.slice(2), paragraphs[1]];
+      orderedContext = reordered.join('\n\n');
+    }
+    // Trim to budget after reordering (not before)
+    if (orderedContext.length > 8000) orderedContext = orderedContext.slice(0, 8000);
+  }
+
   const resp = await chatCompletion([
     { role: "system", content: GROUNDEDNESS_PROMPT },
-    { role: "user", content: `CLAIM: ${claim}\n\nCONTEXT:\n${context.slice(0, 8000)}` },
+    { role: "user", content: `CLAIM: ${claim}\n\nCONTEXT:\n${orderedContext}` },
   ]);
 
   try {
